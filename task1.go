@@ -2,19 +2,42 @@ package main
 
 import "fmt"
 
+// создаем структуру в которую встраиваем структуру Action
 type Human struct {
 	name     string
 	activity Action
 }
 
+// встраиваем структуру Action чтобы обращаться напрямую
+type AnotherHuman struct {
+	name string
+	Action
+}
+
 type Action struct {
-	age int
+	age      int
+	position int
+}
+
+func (a *Action) run() {
+	a.position++
 }
 
 func main() {
-	var chelovek Human = Human{
-		name: "boba",
+	var dave Human = Human{
+		name: "dave",
 	}
-	chelovek.activity = Action{age: 5}
-	fmt.Println(chelovek)
+	stive := AnotherHuman{
+		name: "stive",
+		Action: Action{
+			age:      27,
+			position: 3,
+		},
+	}
+
+	dave.activity = Action{age: 24}
+	dave.activity.run()
+
+	stive.run()
+	fmt.Printf("%#v\n%#v", stive, dave)
 }
