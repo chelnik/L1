@@ -38,11 +38,12 @@ func main() {
 
 	}(channel)
 
-	ticker := time.NewTicker(1000 * time.Millisecond)
+	ticker := time.NewTicker(100 * time.Millisecond)
 LOOP:
 	for {
 		select {
 		case <-ctx.Done():
+			fmt.Println("bye")
 			break LOOP
 		default:
 			t := <-ticker.C
