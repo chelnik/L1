@@ -6,6 +6,7 @@ import (
 )
 
 func mySleep(duration time.Duration) {
+	// фунцкия возвращает канал
 	var timer = time.After(duration)
 	<-timer
 }
