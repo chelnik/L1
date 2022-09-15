@@ -2,7 +2,10 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
+
+//Реализовать быструю сортировку массива (quicksort) встроенными методами языка.
 
 func quicksort(mySlice []int) {
 	left := 0
@@ -37,5 +40,6 @@ func main() {
 	mySlice := []int{
 		1, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 25, 5, 5, 5, 6, 6, 6, 6, 67, 77, 8, 8, 99, 9, 9, 9, 9, 9, 7, 1000}
 	quicksort(mySlice)
+	fmt.Println(sort.IntsAreSorted(mySlice))
 	fmt.Println(mySlice)
 }
