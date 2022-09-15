@@ -4,10 +4,10 @@ import "fmt"
 
 func interect(s1, s2 []int) map[int]string {
 	result := make(map[int]string)
-	for key := range s1 {
+	for _, key := range s1 {
 		result[key] = "no"
 	}
-	for key := range s2 {
+	for _, key := range s2 {
 		result[key] = "yes"
 	}
 	return result
