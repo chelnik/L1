@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// Реализовать пересечение двух неупорядоченных множеств.
 func interect(s1, s2 []int) map[int]string {
 	result := make(map[int]string)
 	for _, key := range s1 {
