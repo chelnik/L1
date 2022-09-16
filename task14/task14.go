@@ -14,9 +14,8 @@ func main() {
 	value1 := 5
 	value2 := "string"
 	value3 := make(chan interface{})
-	value4 := false
 	takeType(value1)
 	takeType(value2)
 	takeType(value3)
-	takeType(value4)
+	takeType(false)
 }
