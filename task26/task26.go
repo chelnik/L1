@@ -25,3 +25,4 @@ func main() {
 	fmt.Println(checkStringUniq("abCdefAaf"), "— false")
 	fmt.Println(checkStringUniq("aabcd"), "— false")
 }
+
