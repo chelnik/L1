@@ -2,42 +2,23 @@ package main
 
 import "fmt"
 
-// создаем структуру в которую встраиваем структуру Action
 type Human struct {
-	name     string
-	activity Action
+	Name string
+	Age  int
 }
 
-// встраиваем структуру Action чтобы обращаться напрямую
-type AnotherHuman struct {
-	name string
-	Action
+func (h Human) String() string {
+	return fmt.Sprintf("name: %s age: %d", h.Name, h.Age)
 }
 
 type Action struct {
-	age      int
-	position int
+	Human // встраиваем поле Human в структуру action
 }
 
-func (a *Action) run() {
-	a.position++
-}
-
+// теперь action тоже реализует интерфейс stringer и может использовать метод string
 func main() {
-	var dave Human = Human{
-		name: "dave",
-	}
-	stive := AnotherHuman{
-		name: "stive",
-		Action: Action{
-			age:      27,
-			position: 3,
-		},
-	}
-
-	dave.activity = Action{age: 24}
-	dave.activity.run()
-
-	stive.run()
-	fmt.Printf("%#v\n%#v", stive, dave)
+	fmt.Println(Action{Human{
+		Name: "Max",
+		Age:  25,
+	}})
 }
