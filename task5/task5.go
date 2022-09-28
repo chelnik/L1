@@ -18,19 +18,6 @@ func main() {
 	nSeconds, _ := strconv.ParseFloat(scanner.Text(), 64)
 	ctx, _ := context.WithTimeout(context.Background(), time.Duration(nSeconds)*time.Second)
 
-	//go func(ctx context.Context, channel chan int) {
-	//	for {
-	//		select {
-	//		case <-ctx.Done():
-	//			fmt.Println("bye")
-	//			return
-	//		default:
-	//			fmt.Print(<-channel, "\n")
-	//		}
-	//	}
-	//
-	//}(ctx, channel)
-
 	go func(channel chan int) {
 		for {
 			fmt.Print(<-channel, "\n")
@@ -52,3 +39,16 @@ LOOP:
 	}
 
 }
+
+//go func(ctx context.Context, channel chan int) {
+//	for {
+//		select {
+//		case <-ctx.Done():
+//			fmt.Println("bye")
+//			return
+//		default:
+//			fmt.Print(<-channel, "\n")
+//		}
+//	}
+//
+//}(ctx, channel)
