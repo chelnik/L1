@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"sync"
 )
 
 //Разработать программу, которая проверяет, что все символы в строке уникальные (true — если уникальные, false etc). Функция проверки должна быть регистронезависимой.
@@ -18,6 +19,7 @@ func checkStringUniq(s string) bool {
 			myMap[sym] = true
 		}
 	}
+	sync.RWMutex{}
 	return true
 }
 func main() {
@@ -25,4 +27,3 @@ func main() {
 	fmt.Println(checkStringUniq("abCdefAaf"), "— false")
 	fmt.Println(checkStringUniq("aabcd"), "— false")
 }
-
